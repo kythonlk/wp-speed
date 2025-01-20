@@ -1,11 +1,12 @@
 import Header from './components/header.jsx'
 import React, { useEffect, useState } from 'react';
+import { api } from "./utils/config";
 
 function App() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost/wordpress/wp-json/api-1/v1/data')
+    fetch(`${api}/data`)
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((error) => console.error('Error fetching data:', error));
