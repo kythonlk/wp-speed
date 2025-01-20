@@ -1,9 +1,13 @@
 import Header from './components/header.jsx'
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { api } from "./utils/config";
 
+type Data = {
+  site_title: string;
+  message: string;
+}
 function App() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<Data | null>(null);
 
   useEffect(() => {
     fetch(`${api}/data`)
